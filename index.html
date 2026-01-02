@@ -36,22 +36,30 @@
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
         <script src="data/MunicpiodeSoPaulo_2.js"></script>
-        <script src="data/Trilhosplanejados_3.js"></script>
-        <script src="data/Trilhosexistentes_4.js"></script>
-        <script src="data/Corredoresdenibusintermunicipaisplanejados_5.js"></script>
-        <script src="data/Corredoresdenibusmunicicpaisplanejados_6.js"></script>
-        <script src="data/AquticoSPCanaldenavegao_7.js"></script>
-        <script src="data/Corredoresdenibusintermunicipaisexistentes_8.js"></script>
-        <script src="data/Corredoresdenibusmunicipaisexistentes_9.js"></script>
-        <script src="data/Estaesdetrilhosexistentes_10.js"></script>
-        <script src="data/AquticoSPAtracadourosplanejados_11.js"></script>
-        <script src="data/AquticoSPAtracadourosexistentes_12.js"></script>
-        <script src="data/Terminaisdenibusplanejados_13.js"></script>
-        <script src="data/Terminaisdenibusexistentes_14.js"></script>
+        <script src="data/PdM2528Corredoresdenibusaimplantar_3.js"></script>
+        <script src="data/PdM2528AquticoSPCanaisaimplantar_4.js"></script>
+        <script src="data/PdM2528CentrodeOperaesCOP_5.js"></script>
+        <script src="data/PdM2528Terminaisdenibusarequalificar_6.js"></script>
+        <script src="data/PdM2528Terminaisdenibusaimplantar_7.js"></script>
+        <script src="data/PdM2528AquticoSPAtracadourosaimplantar_8.js"></script>
+        <script src="data/Trilhosplanejados_9.js"></script>
+        <script src="data/Trilhosexistentes_10.js"></script>
+        <script src="data/Redecicloviriaplanejada_11.js"></script>
+        <script src="data/Redecicloviriaexistente_12.js"></script>
+        <script src="data/Corredoresdenibusintermunicipaisplanejados_13.js"></script>
+        <script src="data/Corredoresdenibusmunicicpaisplanejados_14.js"></script>
+        <script src="data/Corredoresdenibusintermunicipaisexistentes_15.js"></script>
+        <script src="data/Corredoresdenibusmunicipaisexistentes_16.js"></script>
+        <script src="data/AquticoSPCanaldenavegao_17.js"></script>
+        <script src="data/Estaesdetrilhosexistentes_18.js"></script>
+        <script src="data/Terminaisdenibusplanejados_19.js"></script>
+        <script src="data/Terminaisdenibusexistentes_20.js"></script>
+        <script src="data/AquticoSPAtracadourosplanejados_21.js"></script>
+        <script src="data/AquticoSPAtracadourosexistentes_22.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-23.767996928188246,-46.88476597235322],[-23.39472290080773,-46.31532551962454]]);
+        }).fitBounds([[-23.698843012699427,-46.8003355320372],[-23.468330969585935,-46.434042422432206]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -120,7 +128,7 @@
                 lineJoin: 'miter',
                 weight: 3.0, 
                 fillOpacity: 0,
-                interactive: false,
+                interactive: true,
             }
         }
         function style_MunicpiodeSoPaulo_2_1() {
@@ -133,7 +141,7 @@
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fillOpacity: 0,
-                interactive: false,
+                interactive: true,
             }
         }
         map.createPane('pane_MunicpiodeSoPaulo_2');
@@ -141,7 +149,7 @@
         map.getPane('pane_MunicpiodeSoPaulo_2').style['mix-blend-mode'] = 'normal';
         var layer_MunicpiodeSoPaulo_2 = new L.geoJson.multiStyle(json_MunicpiodeSoPaulo_2, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_MunicpiodeSoPaulo_2',
             layerName: 'layer_MunicpiodeSoPaulo_2',
             pane: 'pane_MunicpiodeSoPaulo_2',
@@ -150,7 +158,369 @@
         });
         bounds_group.addLayer(layer_MunicpiodeSoPaulo_2);
         map.addLayer(layer_MunicpiodeSoPaulo_2);
-        function pop_Trilhosplanejados_3(feature, layer) {
+        function pop_PdM2528Corredoresdenibusaimplantar_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NOME'] !== null ? autolinker.link(feature.properties['NOME'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Extensão'] !== null ? autolinker.link(feature.properties['Extensão'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Status PdM'] !== null ? autolinker.link(feature.properties['Status PdM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PdM2528Corredoresdenibusaimplantar_3_0() {
+            return {
+                pane: 'pane_PdM2528Corredoresdenibusaimplantar_3',
+                opacity: 1,
+                color: 'rgba(255,120,1,1.0)',
+                dashArray: '10,5',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_PdM2528Corredoresdenibusaimplantar_3');
+        map.getPane('pane_PdM2528Corredoresdenibusaimplantar_3').style.zIndex = 403;
+        map.getPane('pane_PdM2528Corredoresdenibusaimplantar_3').style['mix-blend-mode'] = 'normal';
+        var layer_PdM2528Corredoresdenibusaimplantar_3 = new L.geoJson(json_PdM2528Corredoresdenibusaimplantar_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PdM2528Corredoresdenibusaimplantar_3',
+            layerName: 'layer_PdM2528Corredoresdenibusaimplantar_3',
+            pane: 'pane_PdM2528Corredoresdenibusaimplantar_3',
+            onEachFeature: pop_PdM2528Corredoresdenibusaimplantar_3,
+            style: style_PdM2528Corredoresdenibusaimplantar_3_0,
+        });
+        bounds_group.addLayer(layer_PdM2528Corredoresdenibusaimplantar_3);
+        map.addLayer(layer_PdM2528Corredoresdenibusaimplantar_3);
+        function pop_PdM2528AquticoSPCanaisaimplantar_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['HIDROVIA'] !== null ? autolinker.link(feature.properties['HIDROVIA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NA_OP_MIN'] !== null ? autolinker.link(feature.properties['NA_OP_MIN'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NA_OP_MAX'] !== null ? autolinker.link(feature.properties['NA_OP_MAX'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Status PdM'] !== null ? autolinker.link(feature.properties['Status PdM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PdM2528AquticoSPCanaisaimplantar_4_0() {
+            return {
+                pane: 'pane_PdM2528AquticoSPCanaisaimplantar_4',
+                opacity: 1,
+                color: 'rgba(255,120,1,1.0)',
+                dashArray: '10,5',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_PdM2528AquticoSPCanaisaimplantar_4');
+        map.getPane('pane_PdM2528AquticoSPCanaisaimplantar_4').style.zIndex = 404;
+        map.getPane('pane_PdM2528AquticoSPCanaisaimplantar_4').style['mix-blend-mode'] = 'normal';
+        var layer_PdM2528AquticoSPCanaisaimplantar_4 = new L.geoJson(json_PdM2528AquticoSPCanaisaimplantar_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PdM2528AquticoSPCanaisaimplantar_4',
+            layerName: 'layer_PdM2528AquticoSPCanaisaimplantar_4',
+            pane: 'pane_PdM2528AquticoSPCanaisaimplantar_4',
+            onEachFeature: pop_PdM2528AquticoSPCanaisaimplantar_4,
+            style: style_PdM2528AquticoSPCanaisaimplantar_4_0,
+        });
+        bounds_group.addLayer(layer_PdM2528AquticoSPCanaisaimplantar_4);
+        map.addLayer(layer_PdM2528AquticoSPCanaisaimplantar_4);
+        function pop_PdM2528CentrodeOperaesCOP_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Ação'] !== null ? autolinker.link(feature.properties['Ação'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Status PdM'] !== null ? autolinker.link(feature.properties['Status PdM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PdM2528CentrodeOperaesCOP_5_0() {
+            return {
+                pane: 'pane_PdM2528CentrodeOperaesCOP_5',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '1,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,0.0)',
+                interactive: true,
+            }
+        }
+        function style_PdM2528CentrodeOperaesCOP_5_1() {
+            return {
+                pane: 'pane_PdM2528CentrodeOperaesCOP_5',
+                radius: 2.8,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,127,0,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_PdM2528CentrodeOperaesCOP_5');
+        map.getPane('pane_PdM2528CentrodeOperaesCOP_5').style.zIndex = 405;
+        map.getPane('pane_PdM2528CentrodeOperaesCOP_5').style['mix-blend-mode'] = 'normal';
+        var layer_PdM2528CentrodeOperaesCOP_5 = new L.geoJson.multiStyle(json_PdM2528CentrodeOperaesCOP_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PdM2528CentrodeOperaesCOP_5',
+            layerName: 'layer_PdM2528CentrodeOperaesCOP_5',
+            pane: 'pane_PdM2528CentrodeOperaesCOP_5',
+            onEachFeature: pop_PdM2528CentrodeOperaesCOP_5,
+            pointToLayers: [function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_PdM2528CentrodeOperaesCOP_5_0(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_PdM2528CentrodeOperaesCOP_5_1(feature));
+            },
+        ]});
+        bounds_group.addLayer(layer_PdM2528CentrodeOperaesCOP_5);
+        map.addLayer(layer_PdM2528CentrodeOperaesCOP_5);
+        function pop_PdM2528Terminaisdenibusarequalificar_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['est_termin'] !== null ? autolinker.link(feature.properties['est_termin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['est_modal'] !== null ? autolinker.link(feature.properties['est_modal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Status PdM'] !== null ? autolinker.link(feature.properties['Status PdM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Bloco'] !== null ? autolinker.link(feature.properties['Bloco'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PdM2528Terminaisdenibusarequalificar_6_0() {
+            return {
+                pane: 'pane_PdM2528Terminaisdenibusarequalificar_6',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '1,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,0.0)',
+                interactive: true,
+            }
+        }
+        function style_PdM2528Terminaisdenibusarequalificar_6_1() {
+            return {
+                pane: 'pane_PdM2528Terminaisdenibusarequalificar_6',
+                radius: 2.8,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,127,0,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_PdM2528Terminaisdenibusarequalificar_6');
+        map.getPane('pane_PdM2528Terminaisdenibusarequalificar_6').style.zIndex = 406;
+        map.getPane('pane_PdM2528Terminaisdenibusarequalificar_6').style['mix-blend-mode'] = 'normal';
+        var layer_PdM2528Terminaisdenibusarequalificar_6 = new L.geoJson.multiStyle(json_PdM2528Terminaisdenibusarequalificar_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PdM2528Terminaisdenibusarequalificar_6',
+            layerName: 'layer_PdM2528Terminaisdenibusarequalificar_6',
+            pane: 'pane_PdM2528Terminaisdenibusarequalificar_6',
+            onEachFeature: pop_PdM2528Terminaisdenibusarequalificar_6,
+            pointToLayers: [function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_PdM2528Terminaisdenibusarequalificar_6_0(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_PdM2528Terminaisdenibusarequalificar_6_1(feature));
+            },
+        ]});
+        bounds_group.addLayer(layer_PdM2528Terminaisdenibusarequalificar_6);
+        map.addLayer(layer_PdM2528Terminaisdenibusarequalificar_6);
+        function pop_PdM2528Terminaisdenibusaimplantar_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['est_termin'] !== null ? autolinker.link(feature.properties['est_termin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['est_modal'] !== null ? autolinker.link(feature.properties['est_modal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Status PdM'] !== null ? autolinker.link(feature.properties['Status PdM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PdM2528Terminaisdenibusaimplantar_7_0() {
+            return {
+                pane: 'pane_PdM2528Terminaisdenibusaimplantar_7',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '1,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,0.0)',
+                interactive: true,
+            }
+        }
+        function style_PdM2528Terminaisdenibusaimplantar_7_1() {
+            return {
+                pane: 'pane_PdM2528Terminaisdenibusaimplantar_7',
+                radius: 2.8,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,127,0,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_PdM2528Terminaisdenibusaimplantar_7');
+        map.getPane('pane_PdM2528Terminaisdenibusaimplantar_7').style.zIndex = 407;
+        map.getPane('pane_PdM2528Terminaisdenibusaimplantar_7').style['mix-blend-mode'] = 'normal';
+        var layer_PdM2528Terminaisdenibusaimplantar_7 = new L.geoJson.multiStyle(json_PdM2528Terminaisdenibusaimplantar_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PdM2528Terminaisdenibusaimplantar_7',
+            layerName: 'layer_PdM2528Terminaisdenibusaimplantar_7',
+            pane: 'pane_PdM2528Terminaisdenibusaimplantar_7',
+            onEachFeature: pop_PdM2528Terminaisdenibusaimplantar_7,
+            pointToLayers: [function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_PdM2528Terminaisdenibusaimplantar_7_0(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_PdM2528Terminaisdenibusaimplantar_7_1(feature));
+            },
+        ]});
+        bounds_group.addLayer(layer_PdM2528Terminaisdenibusaimplantar_7);
+        map.addLayer(layer_PdM2528Terminaisdenibusaimplantar_7);
+        function pop_PdM2528AquticoSPAtracadourosaimplantar_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NOME'] !== null ? autolinker.link(feature.properties['NOME'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ENDERECO'] !== null ? autolinker.link(feature.properties['ENDERECO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['HIDROVIA'] !== null ? autolinker.link(feature.properties['HIDROVIA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Status PdM'] !== null ? autolinker.link(feature.properties['Status PdM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PdM2528AquticoSPAtracadourosaimplantar_8_0() {
+            return {
+                pane: 'pane_PdM2528AquticoSPAtracadourosaimplantar_8',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '1,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,0.0)',
+                interactive: true,
+            }
+        }
+        function style_PdM2528AquticoSPAtracadourosaimplantar_8_1() {
+            return {
+                pane: 'pane_PdM2528AquticoSPAtracadourosaimplantar_8',
+                radius: 2.8,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,127,0,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_PdM2528AquticoSPAtracadourosaimplantar_8');
+        map.getPane('pane_PdM2528AquticoSPAtracadourosaimplantar_8').style.zIndex = 408;
+        map.getPane('pane_PdM2528AquticoSPAtracadourosaimplantar_8').style['mix-blend-mode'] = 'normal';
+        var layer_PdM2528AquticoSPAtracadourosaimplantar_8 = new L.geoJson.multiStyle(json_PdM2528AquticoSPAtracadourosaimplantar_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PdM2528AquticoSPAtracadourosaimplantar_8',
+            layerName: 'layer_PdM2528AquticoSPAtracadourosaimplantar_8',
+            pane: 'pane_PdM2528AquticoSPAtracadourosaimplantar_8',
+            onEachFeature: pop_PdM2528AquticoSPAtracadourosaimplantar_8,
+            pointToLayers: [function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_PdM2528AquticoSPAtracadourosaimplantar_8_0(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_PdM2528AquticoSPAtracadourosaimplantar_8_1(feature));
+            },
+        ]});
+        bounds_group.addLayer(layer_PdM2528AquticoSPAtracadourosaimplantar_8);
+        map.addLayer(layer_PdM2528AquticoSPAtracadourosaimplantar_8);
+        function pop_Trilhosplanejados_9(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['trl_nome'] !== null ? autolinker.link(feature.properties['trl_nome'].toLocaleString()) : '') + '</td>\
@@ -168,9 +538,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Trilhosplanejados_3_0() {
+        function style_Trilhosplanejados_9_0() {
             return {
-                pane: 'pane_Trilhosplanejados_3',
+                pane: 'pane_Trilhosplanejados_9',
                 opacity: 1,
                 color: 'rgba(107,107,107,1.0)',
                 dashArray: '10,5',
@@ -181,21 +551,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Trilhosplanejados_3');
-        map.getPane('pane_Trilhosplanejados_3').style.zIndex = 403;
-        map.getPane('pane_Trilhosplanejados_3').style['mix-blend-mode'] = 'normal';
-        var layer_Trilhosplanejados_3 = new L.geoJson(json_Trilhosplanejados_3, {
+        map.createPane('pane_Trilhosplanejados_9');
+        map.getPane('pane_Trilhosplanejados_9').style.zIndex = 409;
+        map.getPane('pane_Trilhosplanejados_9').style['mix-blend-mode'] = 'normal';
+        var layer_Trilhosplanejados_9 = new L.geoJson(json_Trilhosplanejados_9, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Trilhosplanejados_3',
-            layerName: 'layer_Trilhosplanejados_3',
-            pane: 'pane_Trilhosplanejados_3',
-            onEachFeature: pop_Trilhosplanejados_3,
-            style: style_Trilhosplanejados_3_0,
+            dataVar: 'json_Trilhosplanejados_9',
+            layerName: 'layer_Trilhosplanejados_9',
+            pane: 'pane_Trilhosplanejados_9',
+            onEachFeature: pop_Trilhosplanejados_9,
+            style: style_Trilhosplanejados_9_0,
         });
-        bounds_group.addLayer(layer_Trilhosplanejados_3);
-        map.addLayer(layer_Trilhosplanejados_3);
-        function pop_Trilhosexistentes_4(feature, layer) {
+        bounds_group.addLayer(layer_Trilhosplanejados_9);
+        map.addLayer(layer_Trilhosplanejados_9);
+        function pop_Trilhosexistentes_10(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['trl_nome'] !== null ? autolinker.link(feature.properties['trl_nome'].toLocaleString()) : '') + '</td>\
@@ -213,9 +583,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Trilhosexistentes_4_0() {
+        function style_Trilhosexistentes_10_0() {
             return {
-                pane: 'pane_Trilhosexistentes_4',
+                pane: 'pane_Trilhosexistentes_10',
                 opacity: 1,
                 color: 'rgba(107,107,107,1.0)',
                 dashArray: '',
@@ -226,21 +596,160 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Trilhosexistentes_4');
-        map.getPane('pane_Trilhosexistentes_4').style.zIndex = 404;
-        map.getPane('pane_Trilhosexistentes_4').style['mix-blend-mode'] = 'normal';
-        var layer_Trilhosexistentes_4 = new L.geoJson(json_Trilhosexistentes_4, {
+        map.createPane('pane_Trilhosexistentes_10');
+        map.getPane('pane_Trilhosexistentes_10').style.zIndex = 410;
+        map.getPane('pane_Trilhosexistentes_10').style['mix-blend-mode'] = 'normal';
+        var layer_Trilhosexistentes_10 = new L.geoJson(json_Trilhosexistentes_10, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Trilhosexistentes_4',
-            layerName: 'layer_Trilhosexistentes_4',
-            pane: 'pane_Trilhosexistentes_4',
-            onEachFeature: pop_Trilhosexistentes_4,
-            style: style_Trilhosexistentes_4_0,
+            dataVar: 'json_Trilhosexistentes_10',
+            layerName: 'layer_Trilhosexistentes_10',
+            pane: 'pane_Trilhosexistentes_10',
+            onEachFeature: pop_Trilhosexistentes_10,
+            style: style_Trilhosexistentes_10_0,
         });
-        bounds_group.addLayer(layer_Trilhosexistentes_4);
-        map.addLayer(layer_Trilhosexistentes_4);
-        function pop_Corredoresdenibusintermunicipaisplanejados_5(feature, layer) {
+        bounds_group.addLayer(layer_Trilhosexistentes_10);
+        map.addLayer(layer_Trilhosexistentes_10);
+        function pop_Redecicloviriaplanejada_11(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['descriptio'] !== null ? autolinker.link(feature.properties['descriptio'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['timestamp'] !== null ? autolinker.link(feature.properties['timestamp'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['altitudeMo'] !== null ? autolinker.link(feature.properties['altitudeMo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tessellate'] !== null ? autolinker.link(feature.properties['tessellate'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['extrude'] !== null ? autolinker.link(feature.properties['extrude'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['visibility'] !== null ? autolinker.link(feature.properties['visibility'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['drawOrder'] !== null ? autolinker.link(feature.properties['drawOrder'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['icon'] !== null ? autolinker.link(feature.properties['icon'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PROPciclo'] !== null ? autolinker.link(feature.properties['PROPciclo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PROPin'] !== null ? autolinker.link(feature.properties['PROPin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PROPfim'] !== null ? autolinker.link(feature.properties['PROPfim'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PROPextKm'] !== null ? autolinker.link(feature.properties['PROPextKm'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LOGR'] !== null ? autolinker.link(feature.properties['LOGR'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['EXTtreKm'] !== null ? autolinker.link(feature.properties['EXTtreKm'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DISTRI'] !== null ? autolinker.link(feature.properties['DISTRI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SUBPRE'] !== null ? autolinker.link(feature.properties['SUBPRE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['layer'] !== null ? autolinker.link(feature.properties['layer'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['path'] !== null ? autolinker.link(feature.properties['path'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Redecicloviriaplanejada_11_0() {
+            return {
+                pane: 'pane_Redecicloviriaplanejada_11',
+                opacity: 1,
+                color: 'rgba(0,244,12,1.0)',
+                dashArray: '10,5',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Redecicloviriaplanejada_11');
+        map.getPane('pane_Redecicloviriaplanejada_11').style.zIndex = 411;
+        map.getPane('pane_Redecicloviriaplanejada_11').style['mix-blend-mode'] = 'normal';
+        var layer_Redecicloviriaplanejada_11 = new L.geoJson(json_Redecicloviriaplanejada_11, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Redecicloviriaplanejada_11',
+            layerName: 'layer_Redecicloviriaplanejada_11',
+            pane: 'pane_Redecicloviriaplanejada_11',
+            onEachFeature: pop_Redecicloviriaplanejada_11,
+            style: style_Redecicloviriaplanejada_11_0,
+        });
+        bounds_group.addLayer(layer_Redecicloviriaplanejada_11);
+        function pop_Redecicloviriaexistente_12(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['rc_nome'] !== null ? autolinker.link(feature.properties['rc_nome'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['rc_inaugur'] !== null ? autolinker.link(feature.properties['rc_inaugur'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['rc_ext_t'] !== null ? autolinker.link(feature.properties['rc_ext_t'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['rc_ext_c'] !== null ? autolinker.link(feature.properties['rc_ext_c'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Redecicloviriaexistente_12_0() {
+            return {
+                pane: 'pane_Redecicloviriaexistente_12',
+                opacity: 1,
+                color: 'rgba(0,244,12,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Redecicloviriaexistente_12');
+        map.getPane('pane_Redecicloviriaexistente_12').style.zIndex = 412;
+        map.getPane('pane_Redecicloviriaexistente_12').style['mix-blend-mode'] = 'normal';
+        var layer_Redecicloviriaexistente_12 = new L.geoJson(json_Redecicloviriaexistente_12, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Redecicloviriaexistente_12',
+            layerName: 'layer_Redecicloviriaexistente_12',
+            pane: 'pane_Redecicloviriaexistente_12',
+            onEachFeature: pop_Redecicloviriaexistente_12,
+            style: style_Redecicloviriaexistente_12_0,
+        });
+        bounds_group.addLayer(layer_Redecicloviriaexistente_12);
+        function pop_Corredoresdenibusintermunicipaisplanejados_13(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['trl_nome'] !== null ? autolinker.link(feature.properties['trl_nome'].toLocaleString()) : '') + '</td>\
@@ -258,9 +767,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Corredoresdenibusintermunicipaisplanejados_5_0() {
+        function style_Corredoresdenibusintermunicipaisplanejados_13_0() {
             return {
-                pane: 'pane_Corredoresdenibusintermunicipaisplanejados_5',
+                pane: 'pane_Corredoresdenibusintermunicipaisplanejados_13',
                 opacity: 1,
                 color: 'rgba(227,26,28,1.0)',
                 dashArray: '10,5',
@@ -271,21 +780,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Corredoresdenibusintermunicipaisplanejados_5');
-        map.getPane('pane_Corredoresdenibusintermunicipaisplanejados_5').style.zIndex = 405;
-        map.getPane('pane_Corredoresdenibusintermunicipaisplanejados_5').style['mix-blend-mode'] = 'normal';
-        var layer_Corredoresdenibusintermunicipaisplanejados_5 = new L.geoJson(json_Corredoresdenibusintermunicipaisplanejados_5, {
+        map.createPane('pane_Corredoresdenibusintermunicipaisplanejados_13');
+        map.getPane('pane_Corredoresdenibusintermunicipaisplanejados_13').style.zIndex = 413;
+        map.getPane('pane_Corredoresdenibusintermunicipaisplanejados_13').style['mix-blend-mode'] = 'normal';
+        var layer_Corredoresdenibusintermunicipaisplanejados_13 = new L.geoJson(json_Corredoresdenibusintermunicipaisplanejados_13, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Corredoresdenibusintermunicipaisplanejados_5',
-            layerName: 'layer_Corredoresdenibusintermunicipaisplanejados_5',
-            pane: 'pane_Corredoresdenibusintermunicipaisplanejados_5',
-            onEachFeature: pop_Corredoresdenibusintermunicipaisplanejados_5,
-            style: style_Corredoresdenibusintermunicipaisplanejados_5_0,
+            dataVar: 'json_Corredoresdenibusintermunicipaisplanejados_13',
+            layerName: 'layer_Corredoresdenibusintermunicipaisplanejados_13',
+            pane: 'pane_Corredoresdenibusintermunicipaisplanejados_13',
+            onEachFeature: pop_Corredoresdenibusintermunicipaisplanejados_13,
+            style: style_Corredoresdenibusintermunicipaisplanejados_13_0,
         });
-        bounds_group.addLayer(layer_Corredoresdenibusintermunicipaisplanejados_5);
-        map.addLayer(layer_Corredoresdenibusintermunicipaisplanejados_5);
-        function pop_Corredoresdenibusmunicicpaisplanejados_6(feature, layer) {
+        bounds_group.addLayer(layer_Corredoresdenibusintermunicipaisplanejados_13);
+        map.addLayer(layer_Corredoresdenibusintermunicipaisplanejados_13);
+        function pop_Corredoresdenibusmunicicpaisplanejados_14(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['trl_nome'] !== null ? autolinker.link(feature.properties['trl_nome'].toLocaleString()) : '') + '</td>\
@@ -303,9 +812,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Corredoresdenibusmunicicpaisplanejados_6_0() {
+        function style_Corredoresdenibusmunicicpaisplanejados_14_0() {
             return {
-                pane: 'pane_Corredoresdenibusmunicicpaisplanejados_6',
+                pane: 'pane_Corredoresdenibusmunicicpaisplanejados_14',
                 opacity: 1,
                 color: 'rgba(227,26,28,1.0)',
                 dashArray: '10,5',
@@ -316,21 +825,111 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Corredoresdenibusmunicicpaisplanejados_6');
-        map.getPane('pane_Corredoresdenibusmunicicpaisplanejados_6').style.zIndex = 406;
-        map.getPane('pane_Corredoresdenibusmunicicpaisplanejados_6').style['mix-blend-mode'] = 'normal';
-        var layer_Corredoresdenibusmunicicpaisplanejados_6 = new L.geoJson(json_Corredoresdenibusmunicicpaisplanejados_6, {
+        map.createPane('pane_Corredoresdenibusmunicicpaisplanejados_14');
+        map.getPane('pane_Corredoresdenibusmunicicpaisplanejados_14').style.zIndex = 414;
+        map.getPane('pane_Corredoresdenibusmunicicpaisplanejados_14').style['mix-blend-mode'] = 'normal';
+        var layer_Corredoresdenibusmunicicpaisplanejados_14 = new L.geoJson(json_Corredoresdenibusmunicicpaisplanejados_14, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Corredoresdenibusmunicicpaisplanejados_6',
-            layerName: 'layer_Corredoresdenibusmunicicpaisplanejados_6',
-            pane: 'pane_Corredoresdenibusmunicicpaisplanejados_6',
-            onEachFeature: pop_Corredoresdenibusmunicicpaisplanejados_6,
-            style: style_Corredoresdenibusmunicicpaisplanejados_6_0,
+            dataVar: 'json_Corredoresdenibusmunicicpaisplanejados_14',
+            layerName: 'layer_Corredoresdenibusmunicicpaisplanejados_14',
+            pane: 'pane_Corredoresdenibusmunicicpaisplanejados_14',
+            onEachFeature: pop_Corredoresdenibusmunicicpaisplanejados_14,
+            style: style_Corredoresdenibusmunicicpaisplanejados_14_0,
         });
-        bounds_group.addLayer(layer_Corredoresdenibusmunicicpaisplanejados_6);
-        map.addLayer(layer_Corredoresdenibusmunicicpaisplanejados_6);
-        function pop_AquticoSPCanaldenavegao_7(feature, layer) {
+        bounds_group.addLayer(layer_Corredoresdenibusmunicicpaisplanejados_14);
+        map.addLayer(layer_Corredoresdenibusmunicicpaisplanejados_14);
+        function pop_Corredoresdenibusintermunicipaisexistentes_15(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['trl_nome'] !== null ? autolinker.link(feature.properties['trl_nome'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['trl_modal'] !== null ? autolinker.link(feature.properties['trl_modal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['trl_situac'] !== null ? autolinker.link(feature.properties['trl_situac'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['trl_codigo'] !== null ? autolinker.link(feature.properties['trl_codigo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Corredoresdenibusintermunicipaisexistentes_15_0() {
+            return {
+                pane: 'pane_Corredoresdenibusintermunicipaisexistentes_15',
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Corredoresdenibusintermunicipaisexistentes_15');
+        map.getPane('pane_Corredoresdenibusintermunicipaisexistentes_15').style.zIndex = 415;
+        map.getPane('pane_Corredoresdenibusintermunicipaisexistentes_15').style['mix-blend-mode'] = 'normal';
+        var layer_Corredoresdenibusintermunicipaisexistentes_15 = new L.geoJson(json_Corredoresdenibusintermunicipaisexistentes_15, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Corredoresdenibusintermunicipaisexistentes_15',
+            layerName: 'layer_Corredoresdenibusintermunicipaisexistentes_15',
+            pane: 'pane_Corredoresdenibusintermunicipaisexistentes_15',
+            onEachFeature: pop_Corredoresdenibusintermunicipaisexistentes_15,
+            style: style_Corredoresdenibusintermunicipaisexistentes_15_0,
+        });
+        bounds_group.addLayer(layer_Corredoresdenibusintermunicipaisexistentes_15);
+        map.addLayer(layer_Corredoresdenibusintermunicipaisexistentes_15);
+        function pop_Corredoresdenibusmunicipaisexistentes_16(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['trl_nome'] !== null ? autolinker.link(feature.properties['trl_nome'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['trl_modal'] !== null ? autolinker.link(feature.properties['trl_modal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['trl_situac'] !== null ? autolinker.link(feature.properties['trl_situac'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['trl_codigo'] !== null ? autolinker.link(feature.properties['trl_codigo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Corredoresdenibusmunicipaisexistentes_16_0() {
+            return {
+                pane: 'pane_Corredoresdenibusmunicipaisexistentes_16',
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Corredoresdenibusmunicipaisexistentes_16');
+        map.getPane('pane_Corredoresdenibusmunicipaisexistentes_16').style.zIndex = 416;
+        map.getPane('pane_Corredoresdenibusmunicipaisexistentes_16').style['mix-blend-mode'] = 'normal';
+        var layer_Corredoresdenibusmunicipaisexistentes_16 = new L.geoJson(json_Corredoresdenibusmunicipaisexistentes_16, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Corredoresdenibusmunicipaisexistentes_16',
+            layerName: 'layer_Corredoresdenibusmunicipaisexistentes_16',
+            pane: 'pane_Corredoresdenibusmunicipaisexistentes_16',
+            onEachFeature: pop_Corredoresdenibusmunicipaisexistentes_16,
+            style: style_Corredoresdenibusmunicipaisexistentes_16_0,
+        });
+        bounds_group.addLayer(layer_Corredoresdenibusmunicipaisexistentes_16);
+        map.addLayer(layer_Corredoresdenibusmunicipaisexistentes_16);
+        function pop_AquticoSPCanaldenavegao_17(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['FID'] !== null ? autolinker.link(feature.properties['FID'].toLocaleString()) : '') + '</td>\
@@ -339,9 +938,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_AquticoSPCanaldenavegao_7_0() {
+        function style_AquticoSPCanaldenavegao_17_0() {
             return {
-                pane: 'pane_AquticoSPCanaldenavegao_7',
+                pane: 'pane_AquticoSPCanaldenavegao_17',
                 opacity: 1,
                 color: 'rgba(1,124,255,1.0)',
                 dashArray: '',
@@ -352,111 +951,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_AquticoSPCanaldenavegao_7');
-        map.getPane('pane_AquticoSPCanaldenavegao_7').style.zIndex = 407;
-        map.getPane('pane_AquticoSPCanaldenavegao_7').style['mix-blend-mode'] = 'normal';
-        var layer_AquticoSPCanaldenavegao_7 = new L.geoJson(json_AquticoSPCanaldenavegao_7, {
+        map.createPane('pane_AquticoSPCanaldenavegao_17');
+        map.getPane('pane_AquticoSPCanaldenavegao_17').style.zIndex = 417;
+        map.getPane('pane_AquticoSPCanaldenavegao_17').style['mix-blend-mode'] = 'normal';
+        var layer_AquticoSPCanaldenavegao_17 = new L.geoJson(json_AquticoSPCanaldenavegao_17, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_AquticoSPCanaldenavegao_7',
-            layerName: 'layer_AquticoSPCanaldenavegao_7',
-            pane: 'pane_AquticoSPCanaldenavegao_7',
-            onEachFeature: pop_AquticoSPCanaldenavegao_7,
-            style: style_AquticoSPCanaldenavegao_7_0,
+            dataVar: 'json_AquticoSPCanaldenavegao_17',
+            layerName: 'layer_AquticoSPCanaldenavegao_17',
+            pane: 'pane_AquticoSPCanaldenavegao_17',
+            onEachFeature: pop_AquticoSPCanaldenavegao_17,
+            style: style_AquticoSPCanaldenavegao_17_0,
         });
-        bounds_group.addLayer(layer_AquticoSPCanaldenavegao_7);
-        map.addLayer(layer_AquticoSPCanaldenavegao_7);
-        function pop_Corredoresdenibusintermunicipaisexistentes_8(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['trl_nome'] !== null ? autolinker.link(feature.properties['trl_nome'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['trl_modal'] !== null ? autolinker.link(feature.properties['trl_modal'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['trl_situac'] !== null ? autolinker.link(feature.properties['trl_situac'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['trl_codigo'] !== null ? autolinker.link(feature.properties['trl_codigo'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_Corredoresdenibusintermunicipaisexistentes_8_0() {
-            return {
-                pane: 'pane_Corredoresdenibusintermunicipaisexistentes_8',
-                opacity: 1,
-                color: 'rgba(227,26,28,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 2.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-        }
-        map.createPane('pane_Corredoresdenibusintermunicipaisexistentes_8');
-        map.getPane('pane_Corredoresdenibusintermunicipaisexistentes_8').style.zIndex = 408;
-        map.getPane('pane_Corredoresdenibusintermunicipaisexistentes_8').style['mix-blend-mode'] = 'normal';
-        var layer_Corredoresdenibusintermunicipaisexistentes_8 = new L.geoJson(json_Corredoresdenibusintermunicipaisexistentes_8, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_Corredoresdenibusintermunicipaisexistentes_8',
-            layerName: 'layer_Corredoresdenibusintermunicipaisexistentes_8',
-            pane: 'pane_Corredoresdenibusintermunicipaisexistentes_8',
-            onEachFeature: pop_Corredoresdenibusintermunicipaisexistentes_8,
-            style: style_Corredoresdenibusintermunicipaisexistentes_8_0,
-        });
-        bounds_group.addLayer(layer_Corredoresdenibusintermunicipaisexistentes_8);
-        map.addLayer(layer_Corredoresdenibusintermunicipaisexistentes_8);
-        function pop_Corredoresdenibusmunicipaisexistentes_9(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['trl_nome'] !== null ? autolinker.link(feature.properties['trl_nome'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['trl_modal'] !== null ? autolinker.link(feature.properties['trl_modal'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['trl_situac'] !== null ? autolinker.link(feature.properties['trl_situac'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['trl_codigo'] !== null ? autolinker.link(feature.properties['trl_codigo'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_Corredoresdenibusmunicipaisexistentes_9_0() {
-            return {
-                pane: 'pane_Corredoresdenibusmunicipaisexistentes_9',
-                opacity: 1,
-                color: 'rgba(227,26,28,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 2.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-        }
-        map.createPane('pane_Corredoresdenibusmunicipaisexistentes_9');
-        map.getPane('pane_Corredoresdenibusmunicipaisexistentes_9').style.zIndex = 409;
-        map.getPane('pane_Corredoresdenibusmunicipaisexistentes_9').style['mix-blend-mode'] = 'normal';
-        var layer_Corredoresdenibusmunicipaisexistentes_9 = new L.geoJson(json_Corredoresdenibusmunicipaisexistentes_9, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_Corredoresdenibusmunicipaisexistentes_9',
-            layerName: 'layer_Corredoresdenibusmunicipaisexistentes_9',
-            pane: 'pane_Corredoresdenibusmunicipaisexistentes_9',
-            onEachFeature: pop_Corredoresdenibusmunicipaisexistentes_9,
-            style: style_Corredoresdenibusmunicipaisexistentes_9_0,
-        });
-        bounds_group.addLayer(layer_Corredoresdenibusmunicipaisexistentes_9);
-        map.addLayer(layer_Corredoresdenibusmunicipaisexistentes_9);
-        function pop_Estaesdetrilhosexistentes_10(feature, layer) {
+        bounds_group.addLayer(layer_AquticoSPCanaldenavegao_17);
+        map.addLayer(layer_AquticoSPCanaldenavegao_17);
+        function pop_Estaesdetrilhosexistentes_18(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['est_termin'] !== null ? autolinker.link(feature.properties['est_termin'].toLocaleString()) : '') + '</td>\
@@ -477,10 +986,10 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Estaesdetrilhosexistentes_10_0() {
+        function style_Estaesdetrilhosexistentes_18_0() {
             return {
-                pane: 'pane_Estaesdetrilhosexistentes_10',
-                radius: 2.4,
+                pane: 'pane_Estaesdetrilhosexistentes_18',
+                radius: 2.8,
                 stroke: false,
                 fill: true,
                 fillOpacity: 1,
@@ -488,27 +997,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Estaesdetrilhosexistentes_10');
-        map.getPane('pane_Estaesdetrilhosexistentes_10').style.zIndex = 410;
-        map.getPane('pane_Estaesdetrilhosexistentes_10').style['mix-blend-mode'] = 'normal';
-        var layer_Estaesdetrilhosexistentes_10 = new L.geoJson(json_Estaesdetrilhosexistentes_10, {
+        map.createPane('pane_Estaesdetrilhosexistentes_18');
+        map.getPane('pane_Estaesdetrilhosexistentes_18').style.zIndex = 418;
+        map.getPane('pane_Estaesdetrilhosexistentes_18').style['mix-blend-mode'] = 'normal';
+        var layer_Estaesdetrilhosexistentes_18 = new L.geoJson(json_Estaesdetrilhosexistentes_18, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Estaesdetrilhosexistentes_10',
-            layerName: 'layer_Estaesdetrilhosexistentes_10',
-            pane: 'pane_Estaesdetrilhosexistentes_10',
-            onEachFeature: pop_Estaesdetrilhosexistentes_10,
+            dataVar: 'json_Estaesdetrilhosexistentes_18',
+            layerName: 'layer_Estaesdetrilhosexistentes_18',
+            pane: 'pane_Estaesdetrilhosexistentes_18',
+            onEachFeature: pop_Estaesdetrilhosexistentes_18,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Estaesdetrilhosexistentes_10_0(feature));
+                return L.circleMarker(latlng, style_Estaesdetrilhosexistentes_18_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Estaesdetrilhosexistentes_10);
-        map.addLayer(layer_Estaesdetrilhosexistentes_10);
-        function pop_AquticoSPAtracadourosplanejados_11(feature, layer) {
+        bounds_group.addLayer(layer_Estaesdetrilhosexistentes_18);
+        map.addLayer(layer_Estaesdetrilhosexistentes_18);
+        function pop_Terminaisdenibusplanejados_19(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['est_termin'] !== null ? autolinker.link(feature.properties['est_termin'].toLocaleString()) : '') + '</td>\
@@ -529,10 +1038,136 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_AquticoSPAtracadourosplanejados_11_0() {
+        function style_Terminaisdenibusplanejados_19_0() {
             return {
-                pane: 'pane_AquticoSPAtracadourosplanejados_11',
-                radius: 2.3999999999999995,
+                pane: 'pane_Terminaisdenibusplanejados_19',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '1,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,0.0)',
+                interactive: true,
+            }
+        }
+        function style_Terminaisdenibusplanejados_19_1() {
+            return {
+                pane: 'pane_Terminaisdenibusplanejados_19',
+                radius: 2.8,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,0,0,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Terminaisdenibusplanejados_19');
+        map.getPane('pane_Terminaisdenibusplanejados_19').style.zIndex = 419;
+        map.getPane('pane_Terminaisdenibusplanejados_19').style['mix-blend-mode'] = 'normal';
+        var layer_Terminaisdenibusplanejados_19 = new L.geoJson.multiStyle(json_Terminaisdenibusplanejados_19, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Terminaisdenibusplanejados_19',
+            layerName: 'layer_Terminaisdenibusplanejados_19',
+            pane: 'pane_Terminaisdenibusplanejados_19',
+            onEachFeature: pop_Terminaisdenibusplanejados_19,
+            pointToLayers: [function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Terminaisdenibusplanejados_19_0(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Terminaisdenibusplanejados_19_1(feature));
+            },
+        ]});
+        bounds_group.addLayer(layer_Terminaisdenibusplanejados_19);
+        map.addLayer(layer_Terminaisdenibusplanejados_19);
+        function pop_Terminaisdenibusexistentes_20(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['est_termin'] !== null ? autolinker.link(feature.properties['est_termin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['est_linha'] !== null ? autolinker.link(feature.properties['est_linha'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['est_categ'] !== null ? autolinker.link(feature.properties['est_categ'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['est_modal'] !== null ? autolinker.link(feature.properties['est_modal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['est_situac'] !== null ? autolinker.link(feature.properties['est_situac'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Terminaisdenibusexistentes_20_0() {
+            return {
+                pane: 'pane_Terminaisdenibusexistentes_20',
+                radius: 4.0,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Terminaisdenibusexistentes_20');
+        map.getPane('pane_Terminaisdenibusexistentes_20').style.zIndex = 420;
+        map.getPane('pane_Terminaisdenibusexistentes_20').style['mix-blend-mode'] = 'normal';
+        var layer_Terminaisdenibusexistentes_20 = new L.geoJson(json_Terminaisdenibusexistentes_20, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Terminaisdenibusexistentes_20',
+            layerName: 'layer_Terminaisdenibusexistentes_20',
+            pane: 'pane_Terminaisdenibusexistentes_20',
+            onEachFeature: pop_Terminaisdenibusexistentes_20,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Terminaisdenibusexistentes_20_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Terminaisdenibusexistentes_20);
+        map.addLayer(layer_Terminaisdenibusexistentes_20);
+        function pop_AquticoSPAtracadourosplanejados_21(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['est_termin'] !== null ? autolinker.link(feature.properties['est_termin'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['est_linha'] !== null ? autolinker.link(feature.properties['est_linha'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['est_categ'] !== null ? autolinker.link(feature.properties['est_categ'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['est_modal'] !== null ? autolinker.link(feature.properties['est_modal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['est_situac'] !== null ? autolinker.link(feature.properties['est_situac'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_AquticoSPAtracadourosplanejados_21_0() {
+            return {
+                pane: 'pane_AquticoSPAtracadourosplanejados_21',
+                radius: 2.4,
                 stroke: false,
                 fill: true,
                 fillOpacity: 1,
@@ -540,9 +1175,9 @@
                 interactive: true,
             }
         }
-        function style_AquticoSPAtracadourosplanejados_11_1() {
+        function style_AquticoSPAtracadourosplanejados_21_1() {
             return {
-                pane: 'pane_AquticoSPAtracadourosplanejados_11',
+                pane: 'pane_AquticoSPAtracadourosplanejados_21',
                 radius: 6.0,
                 opacity: 1,
                 color: 'rgba(1,124,255,1.0)',
@@ -556,33 +1191,33 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_AquticoSPAtracadourosplanejados_11');
-        map.getPane('pane_AquticoSPAtracadourosplanejados_11').style.zIndex = 411;
-        map.getPane('pane_AquticoSPAtracadourosplanejados_11').style['mix-blend-mode'] = 'normal';
-        var layer_AquticoSPAtracadourosplanejados_11 = new L.geoJson.multiStyle(json_AquticoSPAtracadourosplanejados_11, {
+        map.createPane('pane_AquticoSPAtracadourosplanejados_21');
+        map.getPane('pane_AquticoSPAtracadourosplanejados_21').style.zIndex = 421;
+        map.getPane('pane_AquticoSPAtracadourosplanejados_21').style['mix-blend-mode'] = 'normal';
+        var layer_AquticoSPAtracadourosplanejados_21 = new L.geoJson.multiStyle(json_AquticoSPAtracadourosplanejados_21, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_AquticoSPAtracadourosplanejados_11',
-            layerName: 'layer_AquticoSPAtracadourosplanejados_11',
-            pane: 'pane_AquticoSPAtracadourosplanejados_11',
-            onEachFeature: pop_AquticoSPAtracadourosplanejados_11,
+            dataVar: 'json_AquticoSPAtracadourosplanejados_21',
+            layerName: 'layer_AquticoSPAtracadourosplanejados_21',
+            pane: 'pane_AquticoSPAtracadourosplanejados_21',
+            onEachFeature: pop_AquticoSPAtracadourosplanejados_21,
             pointToLayers: [function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_AquticoSPAtracadourosplanejados_11_0(feature));
+                return L.circleMarker(latlng, style_AquticoSPAtracadourosplanejados_21_0(feature));
             },function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_AquticoSPAtracadourosplanejados_11_1(feature));
+                return L.circleMarker(latlng, style_AquticoSPAtracadourosplanejados_21_1(feature));
             },
         ]});
-        bounds_group.addLayer(layer_AquticoSPAtracadourosplanejados_11);
-        map.addLayer(layer_AquticoSPAtracadourosplanejados_11);
-        function pop_AquticoSPAtracadourosexistentes_12(feature, layer) {
+        bounds_group.addLayer(layer_AquticoSPAtracadourosplanejados_21);
+        map.addLayer(layer_AquticoSPAtracadourosplanejados_21);
+        function pop_AquticoSPAtracadourosexistentes_22(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['est_termin'] !== null ? autolinker.link(feature.properties['est_termin'].toLocaleString()) : '') + '</td>\
@@ -603,9 +1238,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_AquticoSPAtracadourosexistentes_12_0() {
+        function style_AquticoSPAtracadourosexistentes_22_0() {
             return {
-                pane: 'pane_AquticoSPAtracadourosexistentes_12',
+                pane: 'pane_AquticoSPAtracadourosexistentes_22',
                 radius: 4.0,
                 stroke: false,
                 fill: true,
@@ -614,152 +1249,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_AquticoSPAtracadourosexistentes_12');
-        map.getPane('pane_AquticoSPAtracadourosexistentes_12').style.zIndex = 412;
-        map.getPane('pane_AquticoSPAtracadourosexistentes_12').style['mix-blend-mode'] = 'normal';
-        var layer_AquticoSPAtracadourosexistentes_12 = new L.geoJson(json_AquticoSPAtracadourosexistentes_12, {
+        map.createPane('pane_AquticoSPAtracadourosexistentes_22');
+        map.getPane('pane_AquticoSPAtracadourosexistentes_22').style.zIndex = 422;
+        map.getPane('pane_AquticoSPAtracadourosexistentes_22').style['mix-blend-mode'] = 'normal';
+        var layer_AquticoSPAtracadourosexistentes_22 = new L.geoJson(json_AquticoSPAtracadourosexistentes_22, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_AquticoSPAtracadourosexistentes_12',
-            layerName: 'layer_AquticoSPAtracadourosexistentes_12',
-            pane: 'pane_AquticoSPAtracadourosexistentes_12',
-            onEachFeature: pop_AquticoSPAtracadourosexistentes_12,
+            dataVar: 'json_AquticoSPAtracadourosexistentes_22',
+            layerName: 'layer_AquticoSPAtracadourosexistentes_22',
+            pane: 'pane_AquticoSPAtracadourosexistentes_22',
+            onEachFeature: pop_AquticoSPAtracadourosexistentes_22,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_AquticoSPAtracadourosexistentes_12_0(feature));
+                return L.circleMarker(latlng, style_AquticoSPAtracadourosexistentes_22_0(feature));
             },
         });
-        bounds_group.addLayer(layer_AquticoSPAtracadourosexistentes_12);
-        map.addLayer(layer_AquticoSPAtracadourosexistentes_12);
-        function pop_Terminaisdenibusplanejados_13(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['est_termin'] !== null ? autolinker.link(feature.properties['est_termin'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['est_linha'] !== null ? autolinker.link(feature.properties['est_linha'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['est_categ'] !== null ? autolinker.link(feature.properties['est_categ'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['est_modal'] !== null ? autolinker.link(feature.properties['est_modal'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['est_situac'] !== null ? autolinker.link(feature.properties['est_situac'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_Terminaisdenibusplanejados_13_0() {
-            return {
-                pane: 'pane_Terminaisdenibusplanejados_13',
-                radius: 6.000000000000001,
-                opacity: 1,
-                color: 'rgba(227,26,28,1.0)',
-                dashArray: '1,5',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(227,26,28,0.0)',
-                interactive: true,
-            }
-        }
-        function style_Terminaisdenibusplanejados_13_1() {
-            return {
-                pane: 'pane_Terminaisdenibusplanejados_13',
-                radius: 2.8,
-                stroke: false,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,0,0,1.0)',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_Terminaisdenibusplanejados_13');
-        map.getPane('pane_Terminaisdenibusplanejados_13').style.zIndex = 413;
-        map.getPane('pane_Terminaisdenibusplanejados_13').style['mix-blend-mode'] = 'normal';
-        var layer_Terminaisdenibusplanejados_13 = new L.geoJson.multiStyle(json_Terminaisdenibusplanejados_13, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_Terminaisdenibusplanejados_13',
-            layerName: 'layer_Terminaisdenibusplanejados_13',
-            pane: 'pane_Terminaisdenibusplanejados_13',
-            onEachFeature: pop_Terminaisdenibusplanejados_13,
-            pointToLayers: [function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.circleMarker(latlng, style_Terminaisdenibusplanejados_13_0(feature));
-            },function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.circleMarker(latlng, style_Terminaisdenibusplanejados_13_1(feature));
-            },
-        ]});
-        bounds_group.addLayer(layer_Terminaisdenibusplanejados_13);
-        map.addLayer(layer_Terminaisdenibusplanejados_13);
-        function pop_Terminaisdenibusexistentes_14(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['est_termin'] !== null ? autolinker.link(feature.properties['est_termin'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['est_linha'] !== null ? autolinker.link(feature.properties['est_linha'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['est_categ'] !== null ? autolinker.link(feature.properties['est_categ'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['est_modal'] !== null ? autolinker.link(feature.properties['est_modal'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['est_situac'] !== null ? autolinker.link(feature.properties['est_situac'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_Terminaisdenibusexistentes_14_0() {
-            return {
-                pane: 'pane_Terminaisdenibusexistentes_14',
-                radius: 4.0,
-                stroke: false,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(227,26,28,1.0)',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_Terminaisdenibusexistentes_14');
-        map.getPane('pane_Terminaisdenibusexistentes_14').style.zIndex = 414;
-        map.getPane('pane_Terminaisdenibusexistentes_14').style['mix-blend-mode'] = 'normal';
-        var layer_Terminaisdenibusexistentes_14 = new L.geoJson(json_Terminaisdenibusexistentes_14, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_Terminaisdenibusexistentes_14',
-            layerName: 'layer_Terminaisdenibusexistentes_14',
-            pane: 'pane_Terminaisdenibusexistentes_14',
-            onEachFeature: pop_Terminaisdenibusexistentes_14,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.circleMarker(latlng, style_Terminaisdenibusexistentes_14_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_Terminaisdenibusexistentes_14);
-        map.addLayer(layer_Terminaisdenibusexistentes_14);
+        bounds_group.addLayer(layer_AquticoSPAtracadourosexistentes_22);
+        map.addLayer(layer_AquticoSPAtracadourosexistentes_22);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -771,7 +1280,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/Terminaisdenibusexistentes_14.png" /> Terminais de ônibus existentes': layer_Terminaisdenibusexistentes_14,'<img src="legend/Terminaisdenibusplanejados_13.png" /> Terminais de ônibus planejados': layer_Terminaisdenibusplanejados_13,'<img src="legend/AquticoSPAtracadourosexistentes_12.png" /> Aquático SP - Atracadouros existentes': layer_AquticoSPAtracadourosexistentes_12,'<img src="legend/AquticoSPAtracadourosplanejados_11.png" /> Aquático SP - Atracadouros planejados': layer_AquticoSPAtracadourosplanejados_11,'<img src="legend/Estaesdetrilhosexistentes_10.png" /> Estações de trilhos existentes': layer_Estaesdetrilhosexistentes_10,'<img src="legend/Corredoresdenibusmunicipaisexistentes_9.png" /> Corredores de ônibus municipais existentes': layer_Corredoresdenibusmunicipaisexistentes_9,'<img src="legend/Corredoresdenibusintermunicipaisexistentes_8.png" /> Corredores de ônibus intermunicipais existentes': layer_Corredoresdenibusintermunicipaisexistentes_8,'<img src="legend/AquticoSPCanaldenavegao_7.png" /> Aquático SP - Canal de navegação ': layer_AquticoSPCanaldenavegao_7,'<img src="legend/Corredoresdenibusmunicicpaisplanejados_6.png" /> Corredores de ônibus municicpais planejados': layer_Corredoresdenibusmunicicpaisplanejados_6,'<img src="legend/Corredoresdenibusintermunicipaisplanejados_5.png" /> Corredores de ônibus intermunicipais planejados ': layer_Corredoresdenibusintermunicipaisplanejados_5,'<img src="legend/Trilhosexistentes_4.png" /> Trilhos existentes': layer_Trilhosexistentes_4,'<img src="legend/Trilhosplanejados_3.png" /> Trilhos planejados': layer_Trilhosplanejados_3,'<img src="legend/MunicpiodeSoPaulo_2.png" /> Município de São Paulo': layer_MunicpiodeSoPaulo_2,"Mapa base": layer_Mapabase_1,"Imagem de satélite": layer_Imagemdesatlite_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/AquticoSPAtracadourosexistentes_22.png" /> Aquático SP - Atracadouros existentes': layer_AquticoSPAtracadourosexistentes_22,'<img src="legend/AquticoSPAtracadourosplanejados_21.png" /> Aquático SP - Atracadouros planejados': layer_AquticoSPAtracadourosplanejados_21,'<img src="legend/Terminaisdenibusexistentes_20.png" /> Terminais de ônibus existentes': layer_Terminaisdenibusexistentes_20,'<img src="legend/Terminaisdenibusplanejados_19.png" /> Terminais de ônibus planejados': layer_Terminaisdenibusplanejados_19,'<img src="legend/Estaesdetrilhosexistentes_18.png" /> Estações de trilhos existentes': layer_Estaesdetrilhosexistentes_18,'<img src="legend/AquticoSPCanaldenavegao_17.png" /> Aquático SP - Canal de navegação ': layer_AquticoSPCanaldenavegao_17,'<img src="legend/Corredoresdenibusmunicipaisexistentes_16.png" /> Corredores de ônibus municipais existentes': layer_Corredoresdenibusmunicipaisexistentes_16,'<img src="legend/Corredoresdenibusintermunicipaisexistentes_15.png" /> Corredores de ônibus intermunicipais existentes': layer_Corredoresdenibusintermunicipaisexistentes_15,'<img src="legend/Corredoresdenibusmunicicpaisplanejados_14.png" /> Corredores de ônibus municicpais planejados': layer_Corredoresdenibusmunicicpaisplanejados_14,'<img src="legend/Corredoresdenibusintermunicipaisplanejados_13.png" /> Corredores de ônibus intermunicipais planejados ': layer_Corredoresdenibusintermunicipaisplanejados_13,'<img src="legend/Redecicloviriaexistente_12.png" /> Rede cicloviária existente': layer_Redecicloviriaexistente_12,'<img src="legend/Redecicloviriaplanejada_11.png" /> Rede cicloviária planejada': layer_Redecicloviriaplanejada_11,'<img src="legend/Trilhosexistentes_10.png" /> Trilhos existentes': layer_Trilhosexistentes_10,'<img src="legend/Trilhosplanejados_9.png" /> Trilhos planejados': layer_Trilhosplanejados_9,'<img src="legend/PdM2528AquticoSPAtracadourosaimplantar_8.png" /> PdM 25-28 Aquático SP - Atracadouros a implantar': layer_PdM2528AquticoSPAtracadourosaimplantar_8,'<img src="legend/PdM2528Terminaisdenibusaimplantar_7.png" /> PdM 25-28 Terminais de ônibus a implantar': layer_PdM2528Terminaisdenibusaimplantar_7,'<img src="legend/PdM2528Terminaisdenibusarequalificar_6.png" /> PdM 25-28 Terminais de ônibus a requalificar': layer_PdM2528Terminaisdenibusarequalificar_6,'<img src="legend/PdM2528CentrodeOperaesCOP_5.png" /> PdM 25-28 Centro de Operações - COP': layer_PdM2528CentrodeOperaesCOP_5,'<img src="legend/PdM2528AquticoSPCanaisaimplantar_4.png" /> PdM 25-28 Aquático SP - Canais a implantar': layer_PdM2528AquticoSPCanaisaimplantar_4,'<img src="legend/PdM2528Corredoresdenibusaimplantar_3.png" /> PdM 25-28 Corredores de ônibus a implantar': layer_PdM2528Corredoresdenibusaimplantar_3,'<img src="legend/MunicpiodeSoPaulo_2.png" /> Município de São Paulo': layer_MunicpiodeSoPaulo_2,"Mapa base": layer_Mapabase_1,"Imagem de satélite": layer_Imagemdesatlite_0,}).addTo(map);
         setBounds();
         </script>
     </body>

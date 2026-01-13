@@ -128,7 +128,7 @@
                 lineJoin: 'miter',
                 weight: 3.0, 
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
         }
         function style_MunicpiodeSoPaulo_2_1() {
@@ -141,7 +141,7 @@
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_MunicpiodeSoPaulo_2');
@@ -149,7 +149,7 @@
         map.getPane('pane_MunicpiodeSoPaulo_2').style['mix-blend-mode'] = 'normal';
         var layer_MunicpiodeSoPaulo_2 = new L.geoJson.multiStyle(json_MunicpiodeSoPaulo_2, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_MunicpiodeSoPaulo_2',
             layerName: 'layer_MunicpiodeSoPaulo_2',
             pane: 'pane_MunicpiodeSoPaulo_2',
